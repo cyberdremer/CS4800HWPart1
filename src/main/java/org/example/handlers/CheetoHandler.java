@@ -8,10 +8,10 @@ public class CheetoHandler extends SnackDispenserHandler{
     @Override
     public void handleRequest(RequestType requestType) {
         if (requestType.equals(RequestType.CHEETOS)){
-            System.out.println("Dispensing cheetos");
+            System.out.print("Dispensing cheetos\n");
         }
         else{
-            System.out.println("I was passed from Cheetos!");
+            System.out.print("I was passed from Cheetos!");
             super.handleRequest(requestType);
         }
     }

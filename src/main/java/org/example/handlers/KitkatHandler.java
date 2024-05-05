@@ -8,7 +8,7 @@ public class KitkatHandler extends SnackDispenserHandler{
     @Override
     public void handleRequest(RequestType requestType) {
         if (requestType.equals(RequestType.KITKAT)){
-            System.out.println("Dispensing Kitkat");
+            System.out.print("Dispensing Kitkat\n");
         }
         else{
             System.out.println("I was passed from Kitkat!");

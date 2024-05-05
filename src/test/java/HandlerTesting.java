@@ -1,9 +1,8 @@
-import org.example.handlers.CheetoHandler;
-import org.example.handlers.CokeHandler;
-import org.example.handlers.RequestType;
-import org.example.handlers.SnackDispenserHandler;
+import org.example.handlers.*;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,13 +17,13 @@ public class HandlerTesting {
     private final PrintStream originalOut = System.out;
     private final PrintStream originalErr = System.err;
 
-    @Before
+    @BeforeEach
     public void setUpStreams() {
         System.setOut(new PrintStream(outContent));
         System.setErr(new PrintStream(errContent));
     }
 
-    @After
+    @AfterEach
     public void restoreStreams() {
         System.setOut(originalOut);
         System.setErr(originalErr);
@@ -32,9 +31,17 @@ public class HandlerTesting {
 
     @Test
     public void testOneChain(){
-        SnackDispenserHandler chain = new CheetoHandler(new CokeHandler(null));
-        String expectedOutput = "Dispensing Cheeto";
-        chain.handleRequest(RequestType.COKE);
-        assertEquals(expectedOutput, errContent.toString());
+        SnackDispenserHandler chain = new CheetoHandler(null);
+        String expectedOutput = "Dispensing cheetos";
+        chain.handleRequest(RequestType.CHEETOS);
+        assertEquals(expectedOutput, outContent.toString());
+    }
+
+    @Test
+    public void testTwoChain() {
+        SnackDispenserHandler chain = new CheetoHandler(new DoritosHandler(null));
+        String expectedOutput = "I was passed from Cheetos!Dispensing Doritoes!\n";
+        chain.handleRequest(RequestType.DORITOS);
+        assertEquals(expectedOutput, outContent.toString());
     }
 }
