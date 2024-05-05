@@ -1,7 +1,10 @@
-package States;
+package org.example.states;
 
-public interface StateOfVendingMachine<VendingMachine> {
-    void selectSnack(VendingMachine vendingMachine, Snack snack);
+import org.example.vendingmachine.Snack;
+import org.example.vendingmachine.VendingMachine;
+
+public interface StateOfVendingMachine{
+    void selectSnack(VendingMachine vendingMachine, String snack);
     void insertPayment(VendingMachine vendingMachine, int payment);
 
     void dispenseSnack(VendingMachine vendingMachine);

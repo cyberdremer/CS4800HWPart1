@@ -1,11 +1,11 @@
-package VendingMachine;
+package org.example.vendingmachine;
 
 public class Snack {
     private String name;
     private int price;
     private int quantity;
 
-    Snack(String name, int price, int quantity){
+    public Snack(String name, int price, int quantity){
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -17,6 +17,10 @@ public class Snack {
 
     public int getQuantity(){
         return quantity;
+    }
+
+    public void decreaseQuantity(){
+        this.quantity--;
     }
 
     @Override
