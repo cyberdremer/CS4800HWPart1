@@ -14,7 +14,7 @@ public class WaitingState implements StateOfVendingMachine {
     @Override
     public void insertPayment(VendingMachine vendingMachine, int payment) {
         Snack selectedSnack = vendingMachine.getSelectedSnack();
-        System.out.print("You have paid $" + payment + "\n");
+        System.out.print("You have paid $" + payment + ".\n");
         if(ableToDispense(selectedSnack, payment)){
             System.out.print("Returning $" + (payment - selectedSnack.getPrice() ) + " to you.\n");
             vendingMachine.setState(new DispensingState());
@@ -22,7 +22,7 @@ public class WaitingState implements StateOfVendingMachine {
         else{
             System.out.println("Returning $" + payment +" to you.");
             if (!isAvailable(selectedSnack)){
-                System.out.print(vendingMachine.getSelectedSnack().getName() + " is unavailable");
+                System.out.print(vendingMachine.getSelectedSnack().getName() + " is unavailable.\n");
             }
             else if (!hasEnoughMoney(selectedSnack, payment)){
                 System.out.print("$" + payment + " is not enough for: " + vendingMachine.getSelectedSnack().getName() + "\n");

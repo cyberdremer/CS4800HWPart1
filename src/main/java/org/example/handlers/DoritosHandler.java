@@ -8,10 +8,10 @@ public class DoritosHandler extends SnackDispenserHandler{
     @Override
     public void handleRequest(RequestType requestType) {
         if (requestType.equals(RequestType.DORITOS)){
-            System.out.print("Dispensing Doritoes!\n");
+            System.out.print("Dispensing Doritos!\n");
         }
         else{
-            System.out.print("I was passed from Doritoes!\n");
+            System.out.print("I was passed from Doritos!\n");
             super.handleRequest(requestType);
         }
     }

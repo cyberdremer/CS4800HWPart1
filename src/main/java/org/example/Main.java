@@ -13,8 +13,13 @@ public class Main {
         vendingMachine.setChainOfResponsibility(chain);
         vendingMachine.addSnack("Pepsi", new Snack("Pepsi", 2, 1));
         vendingMachine.addSnack("KitKat", new Snack("KitKat" , 4, 3));
-        vendingMachine.selectSnack("Pepsi");
-        vendingMachine.insertPayment(1);
+        vendingMachine.addSnack("Coke", new Snack("Coke", 3, 5));
+        vendingMachine.addSnack("Doritos", new Snack("Doritos", 5, 20));
+        vendingMachine.addSnack("Snickers", new Snack("Snickers", 6, 24));
+        vendingMachine.addSnack("Cheeto", new Snack("Cheetos", 5, 10));
+
+        vendingMachine.selectSnack("KitKat");
+        vendingMachine.insertPayment(4);
         vendingMachine.dispenseSnack();
 
 
@@ -25,6 +30,15 @@ public class Main {
         vendingMachine.selectSnack("KitKat");
         vendingMachine.insertPayment(10);
         vendingMachine.dispenseSnack();
+
+        vendingMachine.selectSnack("Snickers");
+        vendingMachine.insertPayment(10);
+        vendingMachine.dispenseSnack();
+
+        vendingMachine.selectSnack("Snickers");
+        vendingMachine.insertPayment(1);
+        vendingMachine.dispenseSnack();
+
 
         vendingMachine.selectSnack("Pepsi");
         vendingMachine.insertPayment(3);
