@@ -44,7 +44,5 @@ public class Main {
         vendingMachine.insertPayment(3);
         vendingMachine.dispenseSnack();
 
-
-
     }
 }
