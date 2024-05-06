@@ -8,9 +8,9 @@ public class CokeHandler extends SnackDispenserHandler{
     @Override
     public void handleRequest(RequestType requestType) {
         if (requestType.equals(RequestType.COKE)){
-            System.out.print("Dispensing coke!\n");
+            System.out.print("Dispensing Coke!\n");
         } else {
-            System.out.println("I was passed from coke!");
+            System.out.print("I was passed from Coke!\n");
             super.handleRequest(requestType);
             
         }

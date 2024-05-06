@@ -11,7 +11,7 @@ public class PepsiHandler extends SnackDispenserHandler{
             System.out.print("Dispensing Pepsi!\n");
         }
         else {
-            System.out.println("I was passed from Pepsi");
+            System.out.print("I was passed from Pepsi\n");
             super.handleRequest(requestType);
 
         }

@@ -9,7 +9,7 @@ public class IdleState implements StateOfVendingMachine {
 
     @Override
     public void selectSnack(VendingMachine vendingMachine, String snack) {
-        vendingMachine.selectSnack(snack);
+        vendingMachine.setSnack(snack);
         vendingMachine.setState(new WaitingState());
 
     }

@@ -11,7 +11,7 @@ public class DoritosHandler extends SnackDispenserHandler{
             System.out.print("Dispensing Doritoes!\n");
         }
         else{
-            System.out.println("I was passed from Doritoes!");
+            System.out.print("I was passed from Doritoes!\n");
             super.handleRequest(requestType);
         }
     }

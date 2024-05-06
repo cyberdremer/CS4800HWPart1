@@ -40,8 +40,22 @@ public class HandlerTesting {
     @Test
     public void testTwoChain() {
         SnackDispenserHandler chain = new CheetoHandler(new DoritosHandler(null));
-        String expectedOutput = "I was passed from Cheetos!Dispensing Doritoes!\n";
+        String expectedOutput = "I was passed from Cheetos!\n" +
+                "Dispensing Doritoes!\n";
         chain.handleRequest(RequestType.DORITOS);
         assertEquals(expectedOutput, outContent.toString());
     }
+
+
+    @Test
+    public void testNonexistentItemInChain(){
+        SnackDispenserHandler chain = new CheetoHandler(null);
+        String expectedOutput = "I was passed from Cheetos!";
+        chain.handleRequest(RequestType.KITKAT);
+        assertEquals(expectedOutput, outContent.toString());
+    }
+
+
+
+
 }

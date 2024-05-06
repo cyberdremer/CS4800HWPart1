@@ -5,13 +5,15 @@ public class SnickerHandler extends SnackDispenserHandler{
         super(next);
     }
 
+
+
     @Override
     public void handleRequest(RequestType requestType) {
         if (requestType.equals(RequestType.SNICKERS)){
-            System.out.print("Dispensing some snickers!\n");
+            System.out.print("Dispensing some Snickers!\n");
         }
         else{
-            System.out.println("I was passed from Snickers");
+            System.out.print("I was passed from Snickers!\n");
             super.handleRequest(requestType);
         }
     }

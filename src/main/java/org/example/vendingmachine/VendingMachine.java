@@ -1,6 +1,7 @@
 package org.example.vendingmachine;
 
 
+import org.example.handlers.RequestType;
 import org.example.handlers.SnackDispenserHandler;
 import org.example.states.IdleState;
 import org.example.states.StateOfVendingMachine;
@@ -33,6 +34,20 @@ public class VendingMachine {
         this.state = state;
 
     }
+
+
+    public Snack getSelectedSnack() {
+        return selectedSnack;
+    }
+
+    public void setChainOfResponsibility(SnackDispenserHandler handler){
+        this.handler = handler;
+    }
+
+    public SnackDispenserHandler getHandler() {
+        return handler;
+    }
+
     public StateOfVendingMachine getState(){
         return this.state;
     }
@@ -46,8 +61,21 @@ public class VendingMachine {
     }
 
     public void selectSnack(String snack){
-        this.state.selectSnack(this, snack );
+        state.selectSnack(this, snack);
+
     }
+
+    public void setSnack(String snack){
+        selectedSnack = snackMap.get(snack);
+
+    }
+
+    public void deincrementSnack(){
+        selectedSnack.decreaseQuantity();
+
+    }
+
+
 
 
 

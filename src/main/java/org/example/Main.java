@@ -1,19 +1,35 @@
 package org.example;
 
+import org.example.handlers.*;
+import org.example.vendingmachine.Snack;
+import org.example.vendingmachine.VendingMachine;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        VendingMachine vendingMachine = new VendingMachine();
+        SnackDispenserHandler chain = new CokeHandler(new PepsiHandler(new CheetoHandler(new DoritosHandler(new KitkatHandler(new SnickerHandler(null))))));
+        vendingMachine.setChainOfResponsibility(chain);
+        vendingMachine.addSnack("Pepsi", new Snack("Pepsi", 2, 1));
+        vendingMachine.addSnack("KitKat", new Snack("KitKat" , 4, 3));
+        vendingMachine.selectSnack("Pepsi");
+        vendingMachine.insertPayment(1);
+        vendingMachine.dispenseSnack();
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        vendingMachine.selectSnack("Pepsi");
+        vendingMachine.insertPayment(4);
+        vendingMachine.dispenseSnack();
+
+        vendingMachine.selectSnack("KitKat");
+        vendingMachine.insertPayment(10);
+        vendingMachine.dispenseSnack();
+
+        vendingMachine.selectSnack("Pepsi");
+        vendingMachine.insertPayment(3);
+        vendingMachine.dispenseSnack();
+
+
     }
 }
